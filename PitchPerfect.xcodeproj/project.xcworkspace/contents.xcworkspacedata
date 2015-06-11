@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../../../../Desktop/movie_quote.mp3">
+   </FileRef>
+   <FileRef
       location = "self:PitchPerfect.xcodeproj">
    </FileRef>
 </Workspace>
