@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AVFoundation
 
 class HomeViewController: UIViewController {
     
@@ -15,23 +14,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var btnStop: UIButton!
     @IBOutlet weak var lblRecordingInProgress: UILabel!
     
-    var audioPlayer:AVAudioPlayer?
-    
     // MARK: view lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let filePath = NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3") {
-            if let fileUrl = NSURL(fileURLWithPath: filePath) {
-                var err:NSError?
-                audioPlayer = AVAudioPlayer(contentsOfURL: fileUrl, error: &err)
-                audioPlayer!.prepareToPlay()
-                if err != nil {
-                    println(err?.localizedDescription)
-                }
-                audioPlayer?.enableRate = true
-            }
-        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -41,19 +26,10 @@ class HomeViewController: UIViewController {
     // MARK: interactions
     @IBAction func tapOnMicrophoneBtn(sender: AnyObject) {
         resetUI(toInitialState: false)
-        
-        if let player = audioPlayer {
-            player.rate = 0.5
-            player.play()
-        }
     }
     
     @IBAction func tapOnStopBtn(sender: AnyObject) {
         resetUI()
-        
-        if let player = audioPlayer {
-            player.stop()
-        }
     }
     
     /**

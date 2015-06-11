@@ -141,6 +141,9 @@
                                 <state key="normal" image="stop2x-iphone">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="tapOnStopBtn:" destination="EvX-AP-TJy" eventType="touchUpInside" id="bRQ-e9-Pmy"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -162,6 +165,7 @@
                         <outlet property="btnHighPitched" destination="Shz-8x-OWD" id="hQk-M5-Zek"/>
                         <outlet property="btnLowPitched" destination="uNc-OB-yFk" id="wWj-tn-r34"/>
                         <outlet property="btnSlow" destination="YFk-v2-AW8" id="3Uy-fH-T5b"/>
+                        <outlet property="btnStop" destination="YiR-x8-hbI" id="gzT-IG-XgC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zee-XP-AnJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
