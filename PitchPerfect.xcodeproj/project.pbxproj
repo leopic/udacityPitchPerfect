@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B39130851B2BB83800DDCB15 /* RecordedAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39130841B2BB83800DDCB15 /* RecordedAudio.swift */; };
 		B3BF45721B2935A4000BAB18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF45711B2935A4000BAB18 /* AppDelegate.swift */; };
 		B3BF45741B2935A4000BAB18 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF45731B2935A4000BAB18 /* HomeViewController.swift */; };
 		B3BF45771B2935A4000BAB18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3BF45751B2935A4000BAB18 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B39130841B2BB83800DDCB15 /* RecordedAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordedAudio.swift; sourceTree = "<group>"; };
 		B3BF456C1B2935A4000BAB18 /* PitchPerfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitchPerfect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3BF45701B2935A4000BAB18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3BF45711B2935A4000BAB18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				B3BF457A1B2935A4000BAB18 /* LaunchScreen.xib */,
 				B3BF456F1B2935A4000BAB18 /* Supporting Files */,
 				B3BF45911B293BCE000BAB18 /* DetailViewController.swift */,
+				B39130841B2BB83800DDCB15 /* RecordedAudio.swift */,
 			);
 			path = PitchPerfect;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B39130851B2BB83800DDCB15 /* RecordedAudio.swift in Sources */,
 				B3BF45921B293BCE000BAB18 /* DetailViewController.swift in Sources */,
 				B3BF45741B2935A4000BAB18 /* HomeViewController.swift in Sources */,
 				B3BF45721B2935A4000BAB18 /* AppDelegate.swift in Sources */,
@@ -421,6 +425,7 @@
 				B3BF458D1B2935A4000BAB18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3BF458E1B2935A4000BAB18 /* Build configuration list for PBXNativeTarget "PitchPerfectTests" */ = {
 			isa = XCConfigurationList;
@@ -429,6 +434,7 @@
 				B3BF45901B2935A4000BAB18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

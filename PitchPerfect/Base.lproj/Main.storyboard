@@ -26,8 +26,8 @@
                                     <action selector="tapOnMicrophoneBtn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ujw-PH-GYa"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJt-sS-psU">
-                                <rect key="frame" x="265" y="358" width="71" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJt-sS-psU">
+                                <rect key="frame" x="248" y="358" width="105" height="19.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" red="0.13725490196078433" green="0.28627450980392155" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -43,7 +43,6 @@
                                 </state>
                                 <connections>
                                     <action selector="tapOnStopBtn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hV5-UJ-Hgd"/>
-                                    <segue destination="EvX-AP-TJy" kind="show" identifier="showDetailSegue" id="SLb-Zt-ITe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -62,6 +61,7 @@
                         <outlet property="btnMicrophone" destination="8r1-Gg-hyR" id="pUN-0x-mai"/>
                         <outlet property="btnStop" destination="jvZ-ax-rwF" id="M78-Dm-HiV"/>
                         <outlet property="lblRecordingInProgress" destination="lJt-sS-psU" id="91A-8o-Suf"/>
+                        <segue destination="EvX-AP-TJy" kind="show" identifier="showDetailSegue" id="A0N-xW-9Sg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -146,7 +146,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="uNc-OB-yFk" firstAttribute="trailing" secondItem="2ZG-nm-blX" secondAttribute="trailing" id="4rV-FP-a1I"/>
                             <constraint firstItem="YFk-v2-AW8" firstAttribute="top" secondItem="sUh-cj-Fx5" secondAttribute="bottom" constant="16" id="C22-Lr-fuX"/>
