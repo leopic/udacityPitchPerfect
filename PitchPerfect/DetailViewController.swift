@@ -62,6 +62,7 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate {
     @IBAction func tapOnStopBtn(sender: AnyObject) {
         if let player = audioPlayer {
             player.stop()
+            postPlay()
         }
     }
     
@@ -92,8 +93,9 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate {
             audioEngine.connect(timePitch, to: audioEngine.outputNode, format: nil)
             
             pitchPlayer.scheduleFile(AVAudioFile(forReading: recordedAudio.filePath, error: &err), atTime: nil, completionHandler: {
+                // Reviewer: why isn't this hiding the stop button? docs say:
+                // "Called after the buffer has completely played or the player is stopped."
                 self.postPlay()
-                println("done!")
             })
             
             if err == nil {
