@@ -21,10 +21,6 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
     var err:NSError?
     
     // MARK: view lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewWillAppear(animated: Bool) {
         resetUI()
     }
@@ -76,6 +72,7 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
     // MARK: AVAudioRecorderDelegate
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
         if flag {
+            // Using the struct's built-in initializer
             recordedAudio = RecordedAudio(filePath: recorder.url, title: recorder.url.lastPathComponent!)
             performSegueWithIdentifier(SegueDetail, sender: self)
         } else {

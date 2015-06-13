@@ -39,6 +39,7 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         postPlay()
     }
     
@@ -60,10 +61,7 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     @IBAction func tapOnStopBtn(sender: AnyObject) {
-        if let player = audioPlayer {
-            player.stop()
-            postPlay()
-        }
+        stopSound()
     }
     
     // MARK: AVAudioPlayerDelegate
@@ -93,9 +91,12 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate {
             audioEngine.connect(timePitch, to: audioEngine.outputNode, format: nil)
             
             pitchPlayer.scheduleFile(AVAudioFile(forReading: recordedAudio.filePath, error: &err), atTime: nil, completionHandler: {
-                // Reviewer: why isn't this hiding the stop button? docs say:
-                // "Called after the buffer has completely played or the player is stopped."
-                self.postPlay()
+                // Reviewer: this feels like it's out of sync
+                // this is called before the audio stops playing
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.btnStop.hidden = true
+                    return
+                })
             })
             
             if err == nil {
@@ -127,13 +128,21 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     /**
+    Stops sounds from both audio player and audio engine.
+    */
+    func stopSound() {
+        btnStop.hidden = true
+        audioEngine.stop()
+        audioPlayer?.stop()
+    }
+
+    /**
     Reset players to initial values.
     */
     func prePlay() {
         if let player = audioPlayer {
-            audioEngine.stop()
+            stopSound()
             audioEngine.reset()
-            player.stop()
             player.currentTime = NSTimeInterval(0.0)
             btnStop.hidden = false
         }
