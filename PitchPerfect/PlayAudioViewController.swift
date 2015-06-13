@@ -1,5 +1,5 @@
 //
-//  DetailViewController.swift
+//  PlayAudioViewController.swift
 //  PitchPerfect
 //
 //  Created by Leo Picado on 6/10/15.
@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class DetailViewController: UIViewController, AVAudioPlayerDelegate {
+class PlayAudioViewController: UIViewController {
     
     @IBOutlet weak var btnSlow: UIButton!
     @IBOutlet weak var btnFast: UIButton!
@@ -29,18 +29,12 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate {
         audioPlayer = AVAudioPlayer(contentsOfURL: recordedAudio.filePath, error: &err)
         if let player = audioPlayer {
             if err == nil {
-                player.delegate = self
                 player.enableRate = true
                 player.prepareToPlay()
             } else {
                 println(err?.localizedDescription)
             }
         }
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        postPlay()
     }
     
     // MARK: Interactions
@@ -63,14 +57,7 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate {
     @IBAction func tapOnStopBtn(sender: AnyObject) {
         stopSound()
     }
-    
-    // MARK: AVAudioPlayerDelegate
-    func audioPlayerDidFinishPlaying(player: AVAudioPlayer!, successfully flag: Bool) {
-        postPlay()
-    }
-    
-    // MARK: Util
-    
+        
     /**
     Play the current audio file at a given pitch.
     
@@ -90,14 +77,7 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate {
             audioEngine.connect(pitchPlayer, to: timePitch, format: nil)
             audioEngine.connect(timePitch, to: audioEngine.outputNode, format: nil)
             
-            pitchPlayer.scheduleFile(AVAudioFile(forReading: recordedAudio.filePath, error: &err), atTime: nil, completionHandler: {
-                // Reviewer: this feels like it's out of sync
-                // this is called before the audio stops playing
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.btnStop.hidden = true
-                    return
-                })
-            })
+            pitchPlayer.scheduleFile(AVAudioFile(forReading: recordedAudio.filePath, error: &err), atTime: nil, completionHandler: nil)
             
             if err == nil {
                 audioEngine.startAndReturnError(&err)
@@ -131,7 +111,6 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate {
     Stops sounds from both audio player and audio engine.
     */
     func stopSound() {
-        btnStop.hidden = true
         audioEngine.stop()
         audioPlayer?.stop()
     }
@@ -144,15 +123,7 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate {
             stopSound()
             audioEngine.reset()
             player.currentTime = NSTimeInterval(0.0)
-            btnStop.hidden = false
         }
-    }
-    
-    /**
-    Called after a recording has finished.
-    */
-    func postPlay() {
-        btnStop.hidden = true
     }
     
 }

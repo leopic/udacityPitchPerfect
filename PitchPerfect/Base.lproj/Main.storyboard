@@ -8,7 +8,7 @@
         <!--Record-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController title="Record" id="vXZ-lx-hvc" customClass="HomeViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Record" id="vXZ-lx-hvc" customClass="RecordAudioViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -71,7 +71,7 @@
         <!--Play-->
         <scene sceneID="AtT-RT-Jgf">
             <objects>
-                <viewController title="Play" id="EvX-AP-TJy" customClass="DetailViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Play" id="EvX-AP-TJy" customClass="PlayAudioViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sUh-cj-Fx5"/>
                         <viewControllerLayoutGuide type="bottom" id="7Y2-If-GXq"/>

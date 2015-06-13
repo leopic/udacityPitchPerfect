@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RecordAudioViewController.swift
 //  PitchPerfect
 //
 //  Created by Leo Picado on 6/10/15.
@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class HomeViewController: UIViewController, AVAudioRecorderDelegate {
+class RecordAudioViewController: UIViewController, AVAudioRecorderDelegate {
     
     @IBOutlet weak var btnMicrophone: UIButton!
     @IBOutlet weak var btnStop: UIButton!
@@ -27,7 +27,7 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == SegueDetail {
-            let next:DetailViewController = segue.destinationViewController as! DetailViewController
+            let next:PlayAudioViewController = segue.destinationViewController as! PlayAudioViewController
             next.recordedAudio = recordedAudio
         }
     }
@@ -79,9 +79,7 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
             println("fail at recording")
         }
     }
-    
-    // MARK: Util
-    
+        
     /**
     Util to handle multiple UI changes at once
     
